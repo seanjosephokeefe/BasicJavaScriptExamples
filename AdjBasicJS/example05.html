@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Example 05</title>
+</head>
+<body>
+<h3>Example 05</h3>
+<form action="#">
+	<h2>Drop Down Lists</h2>
+	<h4>What month were you born?</h4>
+	<select id="DDBirthMonth" onchange="DisplayMonth();">
+		<option value="Init">Please select the month you were born</option>
+		<option value="January">January</option>
+		<option value="February">February</option>
+		<option value="March">March</option>
+		<option value="April">April</option>
+		<option value="May">May</option>
+		<option value="June">June</option>
+		<option value="July">July</option>
+		<option value="August">August</option>
+		<option value="September">September</option>
+		<option value="October">October</option>
+		<option value="November">November</option>
+		<option value="December">December</option>
+	</select>
+	<br /><br />
+	<div id="DivMessage" style="font-weight:bold;"></div>
+</form>
+<p class="information">This example shows how to get the value of a dropdown list. In this case I use an onchange event to populate the div.</p>
+<pre style="color:blue; font-size:16px; word-wrap: break-word;">
+&lt;form action="#"&gt;
+	&lt;h2&gt;Drop Down Lists&lt;/h2&gt;
+	&lt;h4&gt;What month were you born?&lt;/h4&gt;
+	&lt;select id="DDBirthMonth" onchange="DisplayMonth();"&gt;
+		&lt;option value="Init"&gt;Please select the month you were born&lt;/option&gt;
+		&lt;option value="January"&gt;January&lt;/option&gt;
+		&lt;option value="February"&gt;February&lt;/option&gt;
+		&lt;option value="March"&gt;March&lt;/option&gt;
+		&lt;option value="April"&gt;April&lt;/option&gt;
+		&lt;option value="May"&gt;May&lt;/option&gt;
+		&lt;option value="June"&gt;June&lt;/option&gt;
+		&lt;option value="July"&gt;July&lt;/option&gt;
+		&lt;option value="August"&gt;August&lt;/option&gt;
+		&lt;option value="September"&gt;September&lt;/option&gt;
+		&lt;option value="October"&gt;October&lt;/option&gt;
+		&lt;option value="November"&gt;November&lt;/option&gt;
+		&lt;option value="December"&gt;December&lt;/option&gt;
+	&lt;/select&gt;
+	&lt;br /&gt;
+	&lt;br /&gt;
+	&lt;div id="DivMessage" style="font-weight:bold;"&gt;&lt;/div&gt;
+&lt;/form&gt;
+</pre>
+<pre style="color:red; font-size:16px; word-wrap: break-word;">
+&lt;script type="text/javascript"&gt;
+
+function DisplayMonth() {
+    var ddMonth = document.getElementById('DDBirthMonth');
+    var ddText = ddMonth.options[ddMonth.selectedIndex].text;
+    var ddValue = ddMonth.options[ddMonth.selectedIndex].value;
+    var myDiv = document.getElementById('DivMessage');
+    myDiv.innerHTML = "Your birth month is " + ddText;
+    ddMonth.selectedIndex = 0;
+}
+
+&lt;/script&gt;
+</pre>
+<script type="text/javascript">
+function DisplayMonth() {
+    var ddMonth = document.getElementById('DDBirthMonth');
+    var ddText = ddMonth.options[ddMonth.selectedIndex].text;
+    var ddValue = ddMonth.options[ddMonth.selectedIndex].value;
+    var myDiv = document.getElementById('DivMessage');
+    myDiv.innerHTML = "Your birth month is " + ddText;
+    ddMonth.selectedIndex = 0;
+}
+</script>
+</body>
+</html>

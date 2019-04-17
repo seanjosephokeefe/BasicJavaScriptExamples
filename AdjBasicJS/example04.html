@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Example 04</title>
+</head>
+<body>
+<h3>Example 04</h3>
+<form action="#">
+	<h3>Checking Checkboxes</h3>
+	<h4>What sports do you like?</h4>
+	<p><input id="CBFootball" type="checkbox" value="Football" />Football</p>
+	<p><input id="CBBaseball" type="checkbox" value="Baseball" />Baseball</p>
+	<p><input id="CBSoccer" type="checkbox" value="Soccer" />Soccer</p>
+	<p><input id="CBNASCAR" type="checkbox" value="NASCAR" />NASCAR</p>
+	<p><input id="CBHockey" type="checkbox" value="Hockey" />Hockey</p>
+	<div id="DivMessage"></div>
+	<br />
+	<input id="BtnSportTypes" type="button" value="Show me my choices" onclick="DisplaySports();" />
+	<input id="BtnReset" type="reset" value="Clear" onclick="ClearDiv('DivMessage');" />
+</form>
+<p class="information">This example shows how to get the values of checkboxes.</p>
+<pre style="color:blue; font-size:16px; word-wrap: break-word;">
+&lt;form action="#"&gt;
+	&lt;h3&gt;Checking Checkboxes&lt;/h3&gt;
+	&lt;h4&gt;What sports do you like?&lt;/h4&gt;
+	&lt;p&gt;&lt;input id="CBFootball" type="checkbox" value="Football" /&gt;Football&lt;/p&gt;
+	&lt;p&gt;&lt;input id="CBBaseball" type="checkbox" value="Baseball" /&gt;Baseball&lt;/p&gt;
+	&lt;p&gt;&lt;input id="CBSoccer" type="checkbox" value="Soccer" /&gt;Soccer&lt;/p&gt;
+	&lt;p&gt;&lt;input id="CBNASCAR" type="checkbox" value="NASCAR" /&gt;NASCAR&lt;/p&gt;
+	&lt;p&gt;&lt;input id="CBHockey" type="checkbox" value="Hockey" /&gt;Hockey&lt;/p&gt;
+	&lt;div id="DivMessage"&gt;&lt;/div&gt;
+	&lt;br /&gt;
+	&lt;input id="BtnSportTypes" type="button" value="Show me my choices" 
+		onclick="DisplaySports();" /&gt;
+	&lt;input id="BtnReset" type="reset" value="Clear" onclick="ClearDiv('DivMessage');" /&gt;
+&lt;/form&gt;
+</pre>
+<pre style="color:red; font-size:16px; word-wrap: break-word;">
+&lt;script type="text/javascript"&gt;
+
+function DisplaySports() {
+    var myDiv = document.getElementById('DivMessage');
+    var message = "You like the following sports: ";
+    message = ReturnMessage("CBFootball", message);
+    message = ReturnMessage("CBBaseball", message);
+    message = ReturnMessage("CBSoccer", message);
+    message = ReturnMessage("CBNASCAR", message);
+    message = ReturnMessage("CBHockey", message);
+    if (message == "You like the following sports: ")
+        message += "None selected";
+    myDiv.innerHTML = message;
+}
+
+function ReturnMessage(whichControl, message) {
+    if (document.getElementById(whichControl).checked == true) {
+        if (message != "You like the following sports: ") {
+            message += ",";
+        }
+        return message += document.getElementById(whichControl).value;
+    }
+    return message;
+}
+
+function ClearDiv(thisDiv) {
+	var myDiv = document.getElementById(thisDiv);
+	myDiv.innerHTML = "";
+}
+
+&lt;/script&gt;
+</pre>
+<script type="text/javascript">
+
+	function DisplaySports() {
+    var myDiv = document.getElementById('DivMessage');
+    var message = "You like the following sports: ";
+    message = ReturnMessage("CBFootball", message);
+    message = ReturnMessage("CBBaseball", message);
+    message = ReturnMessage("CBSoccer", message);
+    message = ReturnMessage("CBNASCAR", message);
+    message = ReturnMessage("CBHockey", message);
+    if (message == "You like the following sports: ")
+        message += "None selected";
+    myDiv.innerHTML = message;
+}
+
+function ReturnMessage(whichControl, message) {
+    if (document.getElementById(whichControl).checked == true) {
+        if (message != "You like the following sports: ") {
+            message += ",";
+        }
+        return message += document.getElementById(whichControl).value;
+    }
+    return message;
+}
+
+function ClearDiv(thisDiv) {
+	var myDiv = document.getElementById(thisDiv);
+	myDiv.innerHTML = "";
+}
+
+</script>
+</body>
+</html>

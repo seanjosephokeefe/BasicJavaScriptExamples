@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Example 06</title>
+</head>
+<body>
+<h3>Example 06</h3>
+<form action="#">
+	<h3>Control Manipulation</h3>
+	<p>
+		Favorite Holiday? &nbsp;&nbsp;
+		<input id="TBHoliday" type="text" size="100" />
+	</p>
+	<p>
+		Fave Weekend Day
+	<select id="DDWkEndDay">
+		<option value="Friday">Friday</option>
+		<option value="Saturday">Saturday</option>
+		<option value="Sunday">Sunday</option>
+	</select>
+	</p>
+	<p>
+		Fave Pet
+		<input id="RBDog" name="RGPet" type="radio" value="Dogs" />Dogs&nbsp;
+		<input id="RBCat" name="RGPet" type="radio" value="Cats" />Cats &nbsp;&nbsp;
+		<input id="RBTurtle" name="RGPet" type="radio" value="Turtles" />Turtles &nbsp;&nbsp;
+		<input id="RBNone" name="RGPet" type="radio" value="None" checked="checked" />None
+	</p>
+	<p>
+		Do you like any of these colors?&nbsp;
+	<input id="CBBlue" type="checkbox" value="Blue" />Blue
+	<input id="CBYellow" type="checkbox" value="Yellow" />Yellow
+	<input id="CBRed" type="checkbox" value="Red" />Red
+	</p>
+	<div id="DivMessage" style="font-weight:bold;"></div>
+	<input id="BtnManipulate" type="button" value="Manipulate" onclick="ManipulateControls();" />
+	<input id="BtnReset" type="reset" value="Clear" onclick="ClearDiv('DivMessage');" />
+</form>
+<p class="information">
+	This example shows how to manipulate controls.
+</p>
+<pre style="color:blue; font-size:16px; word-wrap: break-word;">
+&lt;h3&gt;Example 06&lt;/h3&gt;
+&lt;form action="#"&gt;
+	&lt;h3&gt;Control Manipulation&lt;/h3&gt;
+	&lt;p&gt;
+		Favorite Holiday? &nbsp;&nbsp;
+		&lt;input id="TBHoliday" type="text" size="100" /&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+		Fave Weekend Day
+	&lt;select id="DDWkEndDay"&gt;
+		&lt;option value="Friday"&gt;Friday&lt;/option&gt;
+		&lt;option value="Saturday"&gt;Saturday&lt;/option&gt;
+		&lt;option value="Sunday"&gt;Sunday&lt;/option&gt;
+	&lt;/select&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+		Fave Pet
+		&lt;input id="RBDog" name="RGPet" type="radio" value="Dogs" /&gt;Dogs&nbsp;
+		&lt;input id="RBCat" name="RGPet" type="radio" value="Cats" /&gt;Cats &nbsp;&nbsp;
+		&lt;input id="RBTurtle" name="RGPet" type="radio" value="Turtles" /&gt;Turtles &nbsp;&nbsp;
+		&lt;input id="RBNone" name="RGPet" type="radio" value="None" checked="checked" /&gt;None
+	&lt;/p&gt;
+	&lt;p&gt;
+		Do you like any of these colors?&nbsp;
+	&lt;input id="CBBlue" type="checkbox" value="Blue" /&gt;Blue
+	&lt;input id="CBYellow" type="checkbox" value="Yellow" /&gt;Yellow
+	&lt;input id="CBRed" type="checkbox" value="Red" /&gt;Red
+	&lt;/p&gt;
+	&lt;div id="DivMessage" style="font-weight:bold;"&gt;&lt;/div&gt;
+	&lt;input id="BtnManipulate" type="button" value="Manipulate" onclick="ManipulateControls();" /&gt;
+	&lt;input id="BtnReset" type="reset" value="Clear" onclick="ClearDiv('DivMessage');" /&gt;
+&lt;/form&gt;
+</pre>
+<pre style="color:red; font-size:16px; word-wrap: break-word;">
+&lt;script type="text/javascript"&gt;
+
+function ManipulateControls() {
+    var message = "Your answers:";
+    message += "&lt;br /&gt;";
+    var myDiv = document.getElementById('DivMessage');
+    var holiday = document.getElementById("TBHoliday").value;
+    if (holiday.length == 0)
+        message += "You didn't answer your favorite holiday so I put Halloween. ";
+    else
+        message += "You answered " + holiday + " for your favorite holiday but it should have been 
+		Halloween. ";
+    message += "&lt;br /&gt;";
+    var ddDay = document.getElementById('DDWkEndDay').options[document.getElementById('DDWkEndDay')
+	.selectedIndex].text;
+    message += "Day of the week, ";
+    if (ddDay == "Friday")
+        message += " Right, Friday starts the weekend so it rocks.";
+    else if (ddDay == "Saturday")
+        message += " Saturday's ok. But Friday is the best.";
+    else if (ddDay == "Sunday")
+        message += " Sunday is the end of the weekend.";
+    message += "&lt;br /&gt;";
+    var pet;
+    if (document.getElementById('RBDog').checked == true)
+        message += " You're right, dogs are the coolest. ";
+    else if (document.getElementById('RBCat').checked == true)
+        message += " You think cats are cool? Wow!!! ";
+    else if (document.getElementById('RBTurtle').checked == true)
+        message += " You like turtles. ";
+    else if (document.getElementById('RBNone').checked == true)
+        message += " Why no pets? Pets rock, especially dogs. ";
+    message += "&lt;br /&gt;";
+    myDiv.innerHTML = message + " Your fave color should be clear. &lt;br /&gt;Don't worry, I fixed your 
+	selections for you.&lt;br /&gt;&lt;br /&gt;";
+    document.getElementById('DDWkEndDay').selectedIndex = 0;
+    document.getElementById('RBDog').checked = true;
+    document.getElementById("TBHoliday").value = "Halloween, of course. Awesome movies";
+    document.getElementById("CBYellow").checked = false;
+    document.getElementById("CBBlue").checked = false;
+    document.getElementById("CBRed").checked = false;
+}
+
+function ClearDiv(thisDiv) {
+    var myDiv = document.getElementById(thisDiv);
+    myDiv.innerHTML = "";
+}
+
+&lt;/script&gt;
+</pre>
+<script type="text/javascript">
+function ManipulateControls() {
+    var message = "Your answers:";
+    message += "<br />";
+    var myDiv = document.getElementById('DivMessage');
+    var holiday = document.getElementById("TBHoliday").value;
+    if (holiday.length == 0)
+        message += "You didn't answer your favorite holiday so I put Halloween. ";
+    else
+        message += "You answered " + holiday + " for your favorite holiday but it should have been Halloween. ";
+    message += "<br />";
+    var ddDay = document.getElementById('DDWkEndDay').options[document.getElementById('DDWkEndDay').selectedIndex].text;
+    message += "Day of the week, ";
+    if (ddDay == "Friday")
+        message += " Right, Friday starts the weekend so it rocks.";
+    else if (ddDay == "Saturday")
+        message += " Saturday's ok. But Friday is the best.";
+    else if (ddDay == "Sunday")
+        message += " Sunday is the end of the weekend.";
+    message += "<br />";
+    var pet;
+    if (document.getElementById('RBDog').checked == true)
+        message += " You're right, dogs are the coolest. ";
+    else if (document.getElementById('RBCat').checked == true)
+        message += " You think cats are cool? Wow!!! ";
+    else if (document.getElementById('RBTurtle').checked == true)
+        message += " You like turtles. ";
+    else if (document.getElementById('RBNone').checked == true)
+        message += " Why no pets? Pets rock, especially dogs. ";
+    message += "<br />";
+    myDiv.innerHTML = message + " Your fave color should be clear. <br />Don't worry, I fixed your selections for you.<br /><br />";
+    document.getElementById('DDWkEndDay').selectedIndex = 0;
+    document.getElementById('RBDog').checked = true;
+    document.getElementById("TBHoliday").value = "Halloween, of course. Awesome movies";
+    document.getElementById("CBYellow").checked = false;
+    document.getElementById("CBBlue").checked = false;
+    document.getElementById("CBRed").checked = false;
+}
+
+function ClearDiv(thisDiv) {
+    var myDiv = document.getElementById(thisDiv);
+    myDiv.innerHTML = "";
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Example 02</title>
+</head>
+<body>
+	<h3>Example 02</h3>
+	<form action="#">
+		<p>
+			Say hello.....&nbsp;&nbsp;
+			<input id="TBHello" type="text" />
+		</p>
+		<div id="DivMessage"></div>
+		<input id="BtnHello" type="button" value="Say Hello" onclick="SayHello();" />
+		<input id="BtnReset" type="reset" value="Clear" onclick="document.getElementById('DivMessage').innerHTML = '';" />
+	</form>
+	<p class="information">This example uses a div to display either the message with the hello or a warning that nothing was entered in the text box. There is a check to see if the textbox is empty by checking the length of the value of the textbox. If value.length==0 then there is no input.</p>
+<pre style="color:blue; font-size:16px; word-wrap: break-word;">
+&lt;h3&gt;Example 02&lt;/h3&gt;
+&lt;form action="#"&gt;
+	&lt;p&gt;
+		Say hello.....&nbsp;&nbsp;&lt;input id="TBHello" type="text" /&gt;
+	&lt;/p&gt;
+	&lt;div id="DivMessage"&gt;&lt;/div&gt;
+	&lt;input id="BtnHello" type="button" value="Say Hello" onclick="SayHello();" /&gt;
+	&lt;input id="BtnReset" type="reset" value="Clear" 
+	onclick="document.getElementById('DivMessage').innerHTML = '';" /&gt;
+&lt;/form&gt;
+</pre>
+<pre style="color:red; font-size:16px; word-wrap: break-word;">
+&lt;script type="text/javascript"&gt;
+function SayHello() {
+	var myTB = document.getElementById('TBHello').value;
+	var myDiv = document.getElementById('DivMessage');
+	if (myTB.length == 0)
+		message = "Please enter the name for someone to say hello to.";
+	else
+		message = "Hello " + myTB + ".";
+	myDiv.innerHTML = message;
+}	
+&lt;/script&gt;
+</pre>	
+    <script type="text/javascript">
+	function SayHello() {
+		var myTB = document.getElementById('TBHello').value;
+		var myDiv = document.getElementById('DivMessage');
+		if (myTB.length == 0)
+			message = "Please enter the name for someone to say hello to.";
+		else
+			message = "Hello " + myTB + ".";
+		myDiv.innerHTML = message;
+	}	
+	</script>
+</body>
+</html>

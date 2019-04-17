@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Example 03</title>
+</head>
+<body>
+<h3>Example 03</h3>
+<form action="#">
+	<h2>What's your favorite food?</h2>
+	<p>
+		<input id="RBPizza" name="RGFood" type="radio" value ="Pizza"/>Pizza &nbsp;&nbsp;
+		<input id="RBHamburgers" name="RGFood" type="radio" value="Hamburgers" />Hamburgers &nbsp;&nbsp;
+		<input id="RBTwinkies" name="RGFood" type="radio" value="Twinkies" />Twinkies &nbsp;&nbsp;
+		<input id="RBAll" name="RGFood" type="radio" checked="checked"  value="All of the Above"/>All of the Above &nbsp;&nbsp;
+		<input id="RBRobot" name="RGFood" type="radio" value="You're a stinkin' robot."/>I don't eat food, I'm a robot.
+	</p>
+	<div id="DivMessage"></div>
+	<input id="BtnFoodType" type="button" value="Get Food Type" onclick="GetFoodChoice();" />
+	<input id="BtnReset" type="reset" value="Clear" onclick="ClearDiv('DivMessage');" />
+</form>
+<p class="information">This example shows how to get the value of a radio button in a radio button group.</p>
+<pre style="color:blue; font-size:16px; word-wrap: break-word;">
+&lt;h3&gt;Example 03&lt;/h3&gt;
+&lt;form action="#"&gt;
+	&lt;h2&gt;What's your favorite food?&lt;/h2&gt;
+	&lt;p&gt;
+		&lt;input id="RBPizza" name="RGFood" type="radio" value ="Pizza"/&gt;Pizza &nbsp;&nbsp;
+		&lt;input id="RBHamburgers" name="RGFood" type="radio" value="Hamburgers" /&gt;Hamburgers &nbsp;&nbsp;
+		&lt;input id="RBTwinkies" name="RGFood" type="radio" value="Twinkies" /&gt;Twinkies &nbsp;&nbsp;
+		&lt;input id="RBAll" name="RGFood" type="radio" checked="checked"  
+		    value="All of the Above"/&gt;All of the Above &nbsp;&nbsp;
+		&lt;input id="RBRobot" name="RGFood" type="radio" value="You're a stinkin' robot."/&gt;I 
+		don't eat food, I'm a robot.
+	&lt;/p&gt;
+	&lt;div id="DivMessage"&gt;&lt;/div&gt;
+	&lt;input id="BtnFoodType" type="button" value="Get Food Type" onclick="GetFoodChoice();" /&gt;
+	&lt;input id="BtnReset" type="reset" value="Clear" onclick="ClearDiv('DivMessage');" /&gt;
+&lt;/form&gt;
+</pre>
+<pre style="color:red; font-size:16px; word-wrap: break-word;">
+&lt;script type="text/javascript"&gt;
+
+function GetFoodChoice() {
+var myDiv = document.getElementById('DivMessage');
+var message;
+if (document.getElementById('RBPizza').checked)
+	message = document.getElementById('RBPizza').value;
+else if (document.getElementById('RBHamburgers').checked)
+	message = document.getElementById('RBHamburgers').value;
+else if (document.getElementById('RBTwinkies').checked)
+	message = document.getElementById('RBTwinkies').value;
+else if (document.getElementById('RBAll').checked)
+	message = document.getElementById('RBAll').value;
+else if (document.getElementById('RBRobot').checked)
+	message = document.getElementById('RBRobot').value;
+myDiv.innerHTML = message;
+}
+
+function ClearDiv(thisDiv) {
+	var myDiv = document.getElementById(thisDiv);
+	myDiv.innerHTML = "";
+}
+
+&lt;/script&gt;
+</pre>
+    <script type="text/javascript">
+	function GetFoodChoice() {
+    var myDiv = document.getElementById('DivMessage');
+    var message;
+    if (document.getElementById('RBPizza').checked)
+        message = document.getElementById('RBPizza').value;
+    else if (document.getElementById('RBHamburgers').checked)
+        message = document.getElementById('RBHamburgers').value;
+    else if (document.getElementById('RBTwinkies').checked)
+        message = document.getElementById('RBTwinkies').value;
+    else if (document.getElementById('RBAll').checked)
+        message = document.getElementById('RBAll').value;
+    else if (document.getElementById('RBRobot').checked)
+        message = document.getElementById('RBRobot').value;
+    myDiv.innerHTML = message;
+	}
+	function ClearDiv(thisDiv) {
+		var myDiv = document.getElementById(thisDiv);
+		myDiv.innerHTML = "";
+	}
+	</script>
+</body>
+</html>
